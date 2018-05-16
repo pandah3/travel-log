@@ -15,19 +15,36 @@ update.addEventListener('click', function() {
   })
 })
 
-var del = document.getElementById('delete');
-
-del.addEventListener('click', function() {
-  fetch('entries', {
+function deleteEntries(btn) {
+  var id = btn.dataset.entriesId;
+  console.log(id);
+  fetch('/entries/' + btn.dataset.entriesId, {
     method: 'delete',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
-      'date' : 'Most Recent'
+      '_id': btn.dataset.entriesId
     })
   }).then(res => {
     if (res.ok) return res.json()
   }).then(data => {
-    console.log(data)
+    console.log(data);
     window.location.reload()
   })
-})
+}
+
+// var del = document.getElementById('delete');
+//
+// del.addEventListener('click', function() {
+//   fetch('entries', {
+//     method: 'delete',
+//     headers: {'Content-Type': 'application/json'},
+//     body: JSON.stringify({
+//       'date' : 'Most Recent'
+//     })
+//   }).then(res => {
+//     if (res.ok) return res.json()
+//   }).then(data => {
+//     console.log(data)
+//     window.location.reload()
+//   })
+// })

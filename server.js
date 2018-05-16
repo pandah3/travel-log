@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const MongoClient = require('mongodb').MongoClient
+const ObjectId = require('mongodb').ObjectId;
 
 var db
 
@@ -46,11 +47,13 @@ app.put('/entries', (req, res) => {
   })
 })
 
-app.delete('/entries', (req, res) => {
+app.delete('/entries/:id', (req, res) => {
+  var id = req.params.id;
+  console.log(id);
   db.collection('entries')
-  .findOneAndDelete({date: req.body.date},
+  .findOneAndDelete({'_id': ObjectId(id)},
   (err, result) => {
     if (err) return res.send(500, err)
     res.send({message: 'Country got deleted'})
   })
-})
+});

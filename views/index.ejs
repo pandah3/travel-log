@@ -26,6 +26,7 @@
           <li class = "travel">
             <span><%= entries[i].country %></span>
             <span><%= entries[i].date %></span>
+            <button data-entries-id="<%= entries[i]._id %>" onclick="deleteEntries(window.event.target)"> Delete </button>
           </li> <% } %>
     </ol>
 
@@ -40,11 +41,6 @@
     <div>
       <h2>Replace the date of the last submitted entry to "Most Recent"</h2>
       <button id = "update">Replace Date </button>
-    </div>
-
-    <div>
-      <h2>Delete my last entry</h2>
-      <button id = "delete">Delete last entry</button>
     </div>
 
     <script src = "main.js"></script>
