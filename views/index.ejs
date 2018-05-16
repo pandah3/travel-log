@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <meta charset="utf-8"> -->
+    <title>Travel Log</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <h1 class="banner"> my travel log</h1>
+
+    <!-- <img src="http://i1379.photobucket.com/albums/ah130/jlee778/wheres%20pandah_zpsgdyx60p2.jpg" alt="Panda in Washington D.C." />
+    <img src="http://i1379.photobucket.com/albums/ah130/jlee778/20180226_123847_zpskdza9vlw.jpg" alt="Eiffel Tower" />
+     -->
+    <div class="main">
+      <img src="http://i1379.photobucket.com/albums/ah130/jlee778/UKAL9334_zpsxwion7zv.png" alt="Turtle in Indonesia" style="width:100%;"/>
+        <h1 class="title">for the <em>WANDERLUST</em> soul</h1>
+    </div>
+
+    <h3 class = "heading">Log your travels to keep track of the places you've been and take a stroll down memory lane.</h3>
+
+    <ol class = "travelLog">
+        <% for(var i = 0; i < entries.length; i++) {%>
+          <li class = "travel">
+            <span><%= entries[i].country %></span>
+            <span><%= entries[i].date %></span>
+          </li> <% } %>
+    </ol>
+
+    <div class="form">
+      <form action = "/entries" method = "POST">
+        <input type = "text" placeholder = "Country Name" name= "country">
+        <input type = "text" placeholder = "Date Traveled (ie - 10/2018, August 2017, Apr 10-15, 2015)" name = "date">
+        <button type = "submit">Log it!</button>
+      </form>
+  </div>
+
+    <div>
+      <h2>Replace the date of the last submitted entry to "Most Recent"</h2>
+      <button id = "update">Replace Date </button>
+    </div>
+
+    <div>
+      <h2>Delete my last entry</h2>
+      <button id = "delete">Delete last entry</button>
+    </div>
+
+    <script src = "main.js"></script>
+  </body>
+</html>

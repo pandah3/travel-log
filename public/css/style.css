@@ -1,0 +1,47 @@
+/* css file must be in public directory cause server.js allows it to use the public directory */
+
+* {
+  font-family: "Satisfy", sans-serif;
+  background-color: #F0F8FF;
+}
+
+.banner {
+  color: #CD853F;
+  font-size: 60px;
+}
+
+.main {
+  position: relative;
+  text-align: center;
+}
+
+.title {
+  color: PowderBlue;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-10%, -50%);
+  background-color: transparent;
+}
+
+em {
+  background-color: transparent;
+}
+
+.heading {
+  font-size: 30px;
+  text-align: center;
+}
+
+.travel {
+  font-size: 25px;
+}
+
+input, button {
+  width: 30%;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center
+}
