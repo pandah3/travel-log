@@ -57,3 +57,12 @@ app.delete('/entries/:id', (req, res) => {
     res.send({message: 'Country got deleted'})
   })
 });
+
+// edit entries
+
+app.get('/edit/:id', (req, res) => {
+  db.collection('entries').find({'_id': ObjectId(req.params.id)}).toArray(function(err, result) {
+    if (err) return console.log(err)
+    res.render('edit.ejs', {entries: result})
+  })
+});

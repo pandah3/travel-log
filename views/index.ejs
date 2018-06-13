@@ -36,11 +36,12 @@
     <ol class = "travelLog">
         <% for(var i = 0; i < entries.length; i++) {%>
           <li class = "travel">
-            <span><%= entries[i].country %></span>
+            <span><%= entries[i].country + ' :'%></span>
             <span><%= entries[i].date %></span>
             <button class="btn btn-default btn-info" data-entries-id="<%= entries[i]._id %>" onclick="deleteEntries(window.event.target)"> Delete </button>
+            <button><a href="/edit/<%=entries[i]._id%>">Edit</a></button>
           </li> <% } %>
-    </ol>
+    </ol> 
 
     <div class="form">
       <form action = "/entries" method = "POST">
